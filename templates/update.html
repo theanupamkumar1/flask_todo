@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block title %} home {% endblock title %} {% block
+body %}
+
+<body>
+  <h1>Update todo List</h1>
+  <form action="/update/{{todo.number}}" method="POST">
+    <label for="title">Title:</label><br />
+    <input type="text" id="title" value="{{todo.title}}" name="title" /><br />
+    <label for="desc">Description:</label><br />
+    <input type="text" id="desc" value="{{todo.desc}}" name="desc" /><br />
+    <input type="submit" value="Update" />
+
+    {% endblock body %}
+  </form>
+</body>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block title %} home {% endblock title %} {% block
+body %}
+
+<body>
+  <form action="/" method="POST">
+    <label for="title">Title:</label><br />
+    <input type="text" id="title" name="title" /><br />
+    <label for="desc">Description:</label><br />
+    <input type="text" id="desc" name="desc" /><br />
+    <input type="submit" value="Add" />
+    <h1>Todo List</h1>
+    {% if my_todos|length==0 %}
+    <div class="alert alert-light" role="alert">
+      there is no any todo, add one now !
+    </div>
+    {% else %}
+
+    <table>
+      <tr>
+        <th>S.No</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th colspan="2">Action</th>
+      </tr>
+
+      {% for todo in my_todos %}
+      <tr>
+        <td>{{loop.index}}</td>
+        <td>{{todo.title}}</td>
+        <td>{{todo.desc}}</td>
+        <td>{{todo.date.strftime('%H:%M')}}</td>
+        <td>
+          <a href="/delete/{{todo.number}}"
+            ><button type="button" class="btn btn-danger">Delete</button></a
+          >
+        </td>
+        <td>
+          <a href="/update/{{loop.index}}"
+            ><button type="button" class="btn btn-warning">Edit</button></a
+          >
+        </td>
+      </tr>
+      {% endfor %} {% endif %}
+    </table>
+    {% endblock body %}
+  </form>
+</body>
