@@ -2,12 +2,18 @@
 body %}
 
 <body>
-  <form action="/" method="POST">
-    <label for="title">Title:</label><br />
-    <input type="text" id="title" name="title" /><br />
-    <label for="desc">Description:</label><br />
-    <input type="text" id="desc" name="desc" /><br />
-    <input type="submit" value="Add" />
+  <div class="container py-5">
+    <form action="/" method="POST" class="mb-5">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" id="title" name="title" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description:</label>
+        <input type="text" id="desc" name="desc" class="form-control" />
+      </div>
+      <input type="submit" value="Add" class="btn btn-primary w-100" />
+    </form>
     <h1>Todo List</h1>
     {% if my_todos|length==0 %}
     <div class="alert alert-light" role="alert">

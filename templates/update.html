@@ -2,13 +2,20 @@
 body %}
 
 <body>
-  <h1>Update todo List</h1>
-  <form action="/update/{{todo.number}}" method="POST">
-    <label for="title">Title:</label><br />
-    <input type="text" id="title" value="{{todo.title}}" name="title" /><br />
-    <label for="desc">Description:</label><br />
-    <input type="text" id="desc" value="{{todo.desc}}" name="desc" /><br />
-    <input type="submit" value="Update" />
+  <div class="container py-5">
+    <h1>Update todo List</h1>
+    <form action="/update/{{todo.number}}" method="POST" class="mb-5">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" id="title" value="{{todo.title}}" name="title" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description:</label>
+        <input type="text" id="desc" value="{{todo.desc}}" name="desc" class="form-control" />
+      </div>
+      <input type="submit" value="Update" class="btn btn-primary w-100" />
+    </form>
+  </div>
 
     {% endblock body %}
   </form>
